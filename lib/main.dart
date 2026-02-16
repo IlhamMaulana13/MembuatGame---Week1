@@ -12,6 +12,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
+final ValueNotifier<int> counter = ValueNotifier(1);
+
+
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key});
 
