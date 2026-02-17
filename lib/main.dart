@@ -32,10 +32,7 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
+      body: Stack(
             children: [
               Positioned(
                 top: 50,
@@ -81,18 +78,8 @@ class _GameScreenState extends State<GameScreen> {
               ),
             ],
           ),
-
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: ElevatedButton(
-              onPressed: () {
-                counter.value++;
-              },
-              child: const Text("Tambah Score"),
-            ),
-          ),
-        ],
-      ),
+        
+     
     );
   }
 }
