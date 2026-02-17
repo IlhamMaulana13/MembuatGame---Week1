@@ -14,8 +14,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key});
 
@@ -25,65 +23,63 @@ class GameScreen extends StatefulWidget {
 
 class _GameScreenState extends State<GameScreen> {
   late FruitCatcherGame game;
+  final ValueNotifier<int> counter = ValueNotifier(0);
   @override
   void initState() {
     super.initState();
+    game = FruitCatcherGame();
   }
-
-  final ValueNotifier<int> counter = ValueNotifier(0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-            children: [
-              GameWidget(game: game),
-              Positioned(
-                top: 50,
-                left: 20,
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.black54,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-          
-                  child: ValueListenableBuilder<int>(
-                    valueListenable: counter,
-                    builder: (context, score, child) {
-                      return Text(
-                        'Score: $score',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      );
-                    },
-                  ),
-                ),
+        children: [
+          GameWidget(game: game),
+          Positioned(
+            top: 50,
+            left: 20,
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.black54,
+                borderRadius: BorderRadius.circular(10),
               ),
-          
-              Positioned(
-                top: 50,
-                right: 20,
-                child: Row(
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.music_note, color: Colors.black),
-                      onPressed: () {},
+
+              child: ValueListenableBuilder<int>(
+                valueListenable: counter,
+                builder: (context, score, child) {
+                  return Text(
+                    'Score: $score',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
-                    IconButton(
-                      icon: const Icon(Icons.volume_up, color: Colors.black),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
-            ],
+            ),
           ),
-        
-     
+
+          Positioned(
+            top: 50,
+            right: 20,
+            child: Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.music_note, color: Colors.black),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: const Icon(Icons.volume_up, color: Colors.black),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
