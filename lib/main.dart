@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-final ValueNotifier<int> counter = ValueNotifier(1);
+
 
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key});
@@ -26,6 +26,8 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     super.initState();
   }
+
+  final ValueNotifier<int> counter = ValueNotifier(0);
 
   @override
   Widget build(BuildContext context) {
