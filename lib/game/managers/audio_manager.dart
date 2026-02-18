@@ -45,4 +45,13 @@ class AudioManager {
       }
     }
   }
+
+  /// Stop background music
+  void stopBackgroundMusic() {
+    try {
+      FlameAudio.bgm.stop();
+    } catch (e) {
+      print('Error stopping background music: $e');
+    }
+  }
 }
