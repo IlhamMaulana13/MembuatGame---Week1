@@ -6,6 +6,9 @@ class FruitCatcherGame extends FlameGame {
  @override
  Color backgroundColor() => const Color(0xFF87CEEB); // skyblue
  final ValueNotifier<int> scoreNotifier = ValueNotifier<int>(0);
+  void incrementScore() {
+    scoreNotifier.value++;
+  }
  @override
  Future<void> onLoad() async {
  await super.onLoad();
