@@ -4,12 +4,11 @@ import 'package:membuatgame/game/fruit_catcher_game.dart';
 import 'package:membuatgame/game/managers/audio_manager.dart';
 
 void main() async {
- WidgetsFlutterBinding.ensureInitialized();
- // Initialize audio
- await AudioManager().initialize();
- runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  // Initialize audio
+  await AudioManager().initialize();
+  runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -33,6 +32,12 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     super.initState();
     game = FruitCatcherGame();
+  }
+
+  @override
+  void dispose() {
+    game.onRemove();
+    super.dispose();
   }
 
   @override
