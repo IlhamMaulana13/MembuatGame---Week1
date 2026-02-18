@@ -32,4 +32,34 @@ class Fruit extends PositionComponent
       removeFromParent();
     }
   }
+
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollision(intersectionPoints, other);
+
+    if (other is Basket) {
+      gameRef.incrementScore();
+      removeFromParent();
+    }
+  }
+
+  @override
+  void render(Canvas canvas) {
+    super.render(canvas);
+    final paint = Paint()..style = PaintingStyle.fill;
+    switch (type) {
+      case FruitType.apple:
+        paint.color = Colors.red;
+        break;
+      case FruitType.banana:
+        paint.color = Colors.yellow;
+        break;
+      case FruitType.orange:
+        paint.color = Colors.orange;
+        break;
+      case FruitType.strawberry:
+        paint.color = Colors.pink;
+        break;
+    }
+  }
 }
