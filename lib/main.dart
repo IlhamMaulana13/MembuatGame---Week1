@@ -1,10 +1,15 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:membuatgame/game/fruit_catcher_game.dart';
+import 'package:membuatgame/game/managers/audio_manager.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+ WidgetsFlutterBinding.ensureInitialized();
+ // Initialize audio
+ await AudioManager().initialize();
+ runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
