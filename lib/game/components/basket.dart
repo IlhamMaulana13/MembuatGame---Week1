@@ -11,4 +11,17 @@ class Basket extends PositionComponent with HasGameRef, CollisionCallbacks {
     anchor = Anchor.center;
     add(RectangleHitbox());
   }
+
+  @override
+  void render(Canvas canvas) {
+    super.render(canvas);
+    final paint = Paint()
+      ..color = Colors.brown
+      ..style = PaintingStyle.fill;
+    // Draw basket
+    final rect = RRect.fromRectAndRadius(
+      Rect.fromLTWH(0, 0, size.x, size.y),
+      const Radius.circular(10),
+    );
+  }
 }
