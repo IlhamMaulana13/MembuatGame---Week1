@@ -27,7 +27,7 @@ class GameScreen extends StatefulWidget {
 
 class _GameScreenState extends State<GameScreen> {
   late FruitCatcherGame game;
-  final ValueNotifier<int> counter = ValueNotifier(0);
+
   @override
   void initState() {
     super.initState();
@@ -57,7 +57,7 @@ class _GameScreenState extends State<GameScreen> {
               ),
 
               child: ValueListenableBuilder<int>(
-                valueListenable: counter,
+                valueListenable: game.scoreNotifier,
                 builder: (context, score, child) {
                   return Text(
                     'Score: $score',
